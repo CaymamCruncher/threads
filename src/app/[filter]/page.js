@@ -1,8 +1,30 @@
-function Page({ params }) {
+import Search from "@/app/components/search/search";
+
+export async function generateStaticParams() {
+	return [
+		{
+			filter: "Tops",
+		},
+		{
+			filter: "Bottoms",
+		},
+		{
+			filter: "Footwear",
+		},
+		{
+			filter: "Accessories",
+		},
+	];
+}
+
+async function Page({ params }) {
 	const { filter } = params;
+	const data = await fetch(
+		`http://api.searchspring.net/api/search/search.json?siteId=scmq7n&q=${filter}&resultsFormat=native`
+	).then((res) => res.json());
 	return (
-		<main>
-			<h2>{filter}</h2>
+		<main className="container">
+			<Search filter={filter} data={data}></Search>
 		</main>
 	);
 }
