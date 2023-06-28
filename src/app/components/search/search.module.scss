@@ -43,8 +43,9 @@
 // item styles
 
 .item_container {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	gap: 2rem;
 	margin-top: 1rem;
 }
@@ -60,6 +61,12 @@
 	align-items: center;
 	justify-content: center;
 	justify-items: center;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: calc(100% / 3 - 6rem);
+	max-width: 311px;
+	min-width: 275px;
+	width: auto;
 	gap: 1rem;
 
 	&:hover {
