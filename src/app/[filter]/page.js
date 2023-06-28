@@ -18,9 +18,10 @@ export async function generateStaticParams() {
 }
 
 async function Page({ params }) {
+	const code = process.env.SEARCH_CODE;
 	const { filter } = params;
 	const data = await fetch(
-		`http://api.searchspring.net/api/search/search.json?siteId=scmq7n&q=${filter}&resultsFormat=native`
+		`http://api.searchspring.net/api/search/search.json?siteId=${code}&q=${filter}&resultsFormat=native`
 	).then((res) => res.json());
 	return (
 		<main className="container">
