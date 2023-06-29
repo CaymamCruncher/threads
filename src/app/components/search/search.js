@@ -118,7 +118,6 @@ function Search({ filter, data }) {
 									</div>
 								) : (
 									<>
-										<p className={styles.item_msrp}>${item.msrp}</p>
 										<p className={styles.item_price}>${item.price}</p>
 									</>
 								)}
