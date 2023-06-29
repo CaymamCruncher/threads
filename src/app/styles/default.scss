@@ -27,6 +27,25 @@ html {
 	margin: 0 auto;
 }
 
+.animated_link {
+	overflow: hidden;
+	&:after {
+		content: "";
+		position: relative;
+		top: 0;
+		height: 0.75px;
+		width: 0;
+		background-color: #000;
+		display: block;
+		transition: 0.25s ease-in-out;
+	}
+	&:hover {
+		&:after {
+			width: 100%;
+		}
+	}
+}
+
 // header styles
 
 header {

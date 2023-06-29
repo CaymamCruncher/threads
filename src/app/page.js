@@ -19,25 +19,25 @@ async function Home() {
 	return (
 		<main>
 			<section className="container">
-				<h2 className="preview-header">
+				<h2>
 					<Link href="/Tops/1">Tops</Link>
 				</h2>
 				<Search filter="Tops" data={tops} preview={true} />
 			</section>
 			<section className="container">
-				<h2 className="preview-header">
+				<h2>
 					<Link href="/Bottoms/1">Bottoms</Link>
 				</h2>
 				<Search filter="Bottoms" data={bottoms} preview={true} />
 			</section>
 			<section className="container">
-				<h2 className="preview-header">
+				<h2>
 					<Link href="/Footwear/1">Footwear</Link>
 				</h2>
 				<Search filter="Footwear" data={footwear} preview={true} />
 			</section>
 			<section className="container">
-				<h2 className="preview-header">
+				<h2>
 					<Link href="/Accessories/1">Accessories</Link>
 				</h2>
 				<Search filter="Accessories" data={accessories} preview={true} />
