@@ -5,10 +5,44 @@ import Image from "next/image";
 import styles from "@/app/components/search/search.module.scss";
 
 function Search({ filter, data }) {
+	// compute which page buttons to show
+	function computePageButtons(pagination) {
+		if (
+			pagination.currentPage > 1 &&
+			pagination.currentPage < pagination.totalPages
+		) {
+			return (
+				<div className={styles.page_buttons}>
+					<button className={styles.page_buttons_previous}>Previous</button>
+					<button className={styles.page_buttons_next}>Next</button>
+				</div>
+			);
+		} else if (pagination.currentPage > 1) {
+			return (
+				<div className={styles.page_buttons}>
+					<button className={styles.page_buttons_previous}>Previous</button>
+					<button className={styles.page_buttons_next} disabled>
+						Next
+					</button>
+				</div>
+			);
+		} else {
+			return (
+				<div className={styles.page_buttons}>
+					<button className={styles.page_buttons_previous} disabled>
+						Previous
+					</button>
+					<button className={styles.page_buttons_next}>Next</button>
+				</div>
+			);
+		}
+	}
+
 	const [search, updateSearch] = useState("");
 	const router = useRouter();
 	const { results, pagination } = data;
-	console.log(results);
+	console.log(pagination);
+	let pageButtons = computePageButtons(pagination);
 	return (
 		<>
 			<div className={styles.heading_container}>
@@ -71,6 +105,7 @@ function Search({ filter, data }) {
 					<h3>No results Found</h3>
 				</div>
 			)}
+			{pageButtons}
 		</>
 	);
 }
