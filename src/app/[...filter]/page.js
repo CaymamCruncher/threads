@@ -26,7 +26,7 @@ async function Page({ params }) {
 	).then((res) => res.json());
 	return (
 		<main className="container">
-			<Search filter={filter} data={data}></Search>
+			<Search filter={filter} data={data} preview={false}></Search>
 		</main>
 	);
 }

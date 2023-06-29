@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "@/app/components/search/search.module.scss";
 import Link from "next/link";
 
-function Search({ filter, data }) {
+function Search({ filter, data, preview }) {
 	// compute which page buttons to show
 	function computePageButtons(pagination) {
 		if (
@@ -70,30 +70,32 @@ function Search({ filter, data }) {
 	let pageButtons = computePageButtons(pagination);
 	return (
 		<>
-			<div className={styles.heading_container}>
-				<h2 className={styles.heading}>{filter}</h2>
-				<div className={styles.input_container}>
-					<label htmlFor="searchbar" className={styles.label}>
-						Search
-					</label>
-					<input
-						id="searchbar"
-						name="searchbar"
-						type="text"
-						placeholder="Search"
-						value={search}
-						className={styles.input}
-						onChange={(e) => updateSearch(e.target.value)}
-						onSubmit={() => router.push(`/${search}/1`)}
-					/>
-					<button
-						className={styles.button}
-						onClick={() => router.push(`/${search}/1`)}
-					>
-						Search
-					</button>
+			{!preview && (
+				<div className={styles.heading_container}>
+					<h2>{filter}</h2>
+					<div className={styles.input_container}>
+						<label htmlFor="searchbar" className={styles.label}>
+							Search
+						</label>
+						<input
+							id="searchbar"
+							name="searchbar"
+							type="text"
+							placeholder="Search"
+							value={search}
+							className={styles.input}
+							onChange={(e) => updateSearch(e.target.value)}
+							onSubmit={() => router.push(`/${search}/1`)}
+						/>
+						<button
+							className={styles.button}
+							onClick={() => router.push(`/${search}/1`)}
+						>
+							Search
+						</button>
+					</div>
 				</div>
-			</div>
+			)}
 			{results ? (
 				<div className={styles.item_container}>
 					{results.map((item) => (
@@ -131,7 +133,7 @@ function Search({ filter, data }) {
 					<h3>No results Found</h3>
 				</div>
 			)}
-			{pageButtons}
+			{!preview && pageButtons}
 		</>
 	);
 }
