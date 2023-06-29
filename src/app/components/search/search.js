@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "@/app/components/search/search.module.scss";
+import Link from "next/link";
 
 function Search({ filter, data }) {
 	// compute which page buttons to show
@@ -13,15 +14,34 @@ function Search({ filter, data }) {
 		) {
 			return (
 				<div className={styles.page_buttons}>
-					<button className={styles.page_buttons_previous}>Previous</button>
-					<button className={styles.page_buttons_next}>Next</button>
+					<Link
+						className={styles.page_buttons_previous}
+						href={`/${filter}/${pagination.previousPage}`}
+					>
+						Previous
+					</Link>
+					<Link
+						className={styles.page_buttons_next}
+						href={`/${filter}/${pagination.nextPage}`}
+					>
+						Next
+					</Link>
 				</div>
 			);
 		} else if (pagination.currentPage > 1) {
 			return (
 				<div className={styles.page_buttons}>
-					<button className={styles.page_buttons_previous}>Previous</button>
-					<button className={styles.page_buttons_next} disabled>
+					<Link
+						className={styles.page_buttons_previous}
+						href={`/${filter}/${pagination.previousPage}`}
+					>
+						Previous
+					</Link>
+					<button
+						className={styles.page_buttons_next}
+						disabled
+						href={`/${filter}/${pagination.nextPage}`}
+					>
 						Next
 					</button>
 				</div>
@@ -32,7 +52,12 @@ function Search({ filter, data }) {
 					<button className={styles.page_buttons_previous} disabled>
 						Previous
 					</button>
-					<button className={styles.page_buttons_next}>Next</button>
+					<Link
+						className={styles.page_buttons_next}
+						href={`/${filter}/${pagination.nextPage}`}
+					>
+						Next
+					</Link>
 				</div>
 			);
 		}
@@ -59,10 +84,11 @@ function Search({ filter, data }) {
 						value={search}
 						className={styles.input}
 						onChange={(e) => updateSearch(e.target.value)}
+						onSubmit={() => router.push(`/${search}/1`)}
 					/>
 					<button
 						className={styles.button}
-						onClick={() => router.push(`/${search}`)}
+						onClick={() => router.push(`/${search}/1`)}
 					>
 						Search
 					</button>
@@ -81,7 +107,7 @@ function Search({ filter, data }) {
 								height={350}
 							/>
 							<div className={styles.item_price_container}>
-								{item.price < item.msrp ? (
+								{item.price > item.msrp ? (
 									<div>
 										<p
 											className={`${styles.item_price} ${styles.item_crossed_out}`}
@@ -92,6 +118,7 @@ function Search({ filter, data }) {
 									</div>
 								) : (
 									<>
+										<p className={styles.item_msrp}>${item.msrp}</p>
 										<p className={styles.item_price}>${item.price}</p>
 									</>
 								)}

@@ -8,10 +8,10 @@ function Header() {
 				<Link href="/">Threads</Link>
 			</h1>
 			<nav>
-				<Link href={"/Tops"}>Tops</Link>
-				<Link href={"/Bottoms"}>Bottoms</Link>
-				<Link href={"/Footwear"}>Footwear</Link>
-				<Link href={"/Accessories"}>Accessories</Link>
+				<Link href={"/Tops/1"}>Tops</Link>
+				<Link href={"/Bottoms/1"}>Bottoms</Link>
+				<Link href={"/Footwear/1"}>Footwear</Link>
+				<Link href={"/Accessories/1"}>Accessories</Link>
 			</nav>
 		</header>
 	);

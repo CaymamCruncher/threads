@@ -150,6 +150,7 @@
 	justify-content: center;
 	gap: 1rem;
 
+	a,
 	button {
 		background-color: #e1a299;
 		border-radius: 8px;
@@ -172,7 +173,7 @@
 				box-shadow: 2px 2px 0 0 #be8a82;
 			}
 			&:active {
-				transform: scale(1);
+				transform: none;
 				box-shadow: 2px 2px 0 0 #be8a82;
 			}
 		}

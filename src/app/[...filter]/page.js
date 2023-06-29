@@ -3,25 +3,26 @@ import Search from "@/app/components/search/search";
 export async function generateStaticParams() {
 	return [
 		{
-			filter: "Tops",
+			filter: ["Tops", "1"],
 		},
 		{
-			filter: "Bottoms",
+			filter: ["Bottoms", "1"],
 		},
 		{
-			filter: "Footwear",
+			filter: ["Footwear", "1"],
 		},
 		{
-			filter: "Accessories",
+			filter: ["Accessories", "1"],
 		},
 	];
 }
 
 async function Page({ params }) {
 	const code = process.env.SEARCH_CODE;
-	const { filter } = params;
+	const [filter, pageNum] = params.filter;
+	console.log(params.filter);
 	const data = await fetch(
-		`http://api.searchspring.net/api/search/search.json?siteId=${code}&q=${filter}&resultsFormat=native`
+		`http://api.searchspring.net/api/search/search.json?siteId=${code}&q=${filter}&resultsFormat=native&page=${pageNum}`
 	).then((res) => res.json());
 	return (
 		<main className="container">
