@@ -70,32 +70,40 @@ function Search({ filter, data, preview }) {
 	let pageButtons = computePageButtons(pagination);
 	return (
 		<>
-			{!preview && (
-				<div className={styles.heading_container}>
+			<div className={styles.heading_container}>
+				{preview ? (
+					<h2>
+						<Link className="animated_link" href={`/${filter}/1`}>
+							{filter}
+						</Link>
+					</h2>
+				) : (
 					<h2>{filter}</h2>
-					<div className={styles.input_container}>
-						<label htmlFor="searchbar" className={styles.label}>
-							Search
-						</label>
-						<input
-							id="searchbar"
-							name="searchbar"
-							type="text"
-							placeholder="Search"
-							value={search}
-							className={styles.input}
-							onChange={(e) => updateSearch(e.target.value)}
-							onSubmit={() => router.push(`/${search}/1`)}
-						/>
-						<button
-							className={styles.button}
-							onClick={() => router.push(`/${search}/1`)}
-						>
-							Search
-						</button>
-					</div>
-				</div>
-			)}
+				)}
+				<form
+					className={styles.input_container}
+					onSubmit={(e) => {
+						e.preventDefault();
+						router.push(`/${search}/1`);
+					}}
+				>
+					<label htmlFor="searchbar" className={styles.label}>
+						Search
+					</label>
+					<input
+						id="searchbar"
+						name="searchbar"
+						type="text"
+						placeholder="Search"
+						value={search}
+						className={styles.input}
+						onChange={(e) => updateSearch(e.target.value)}
+					/>
+					<button className={styles.button} type="submit">
+						Search
+					</button>
+				</form>
+			</div>
 			{results ? (
 				<div className={styles.item_container}>
 					{results.map((item) => (
