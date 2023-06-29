@@ -31,8 +31,8 @@ function Header() {
 			<div
 				className={
 					isStuck
-						? `${styles.header_container} ${styles.header_stuck_container} container`
-						: `${styles.header_container} container`
+						? `${styles.header_container} ${styles.header_stuck_container}`
+						: styles.header_container
 				}
 			>
 				<h1>
