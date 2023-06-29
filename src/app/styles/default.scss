@@ -49,12 +49,24 @@ html {
 	}
 }
 
-// header styles
-
 // preview heading styles
 
 h2 {
 	font-size: 2.5rem;
+	font-weight: 500;
+}
+
+// footer styles
+
+footer {
+	background-color: #be8a82;
+	color: #fff;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+small {
+	font-size: 0.8rem;
 	font-weight: 500;
 }
 
@@ -65,5 +77,9 @@ h2 {
 
 	.container {
 		padding: 3rem;
+	}
+
+	footer {
+		margin-top: 3rem;
 	}
 }

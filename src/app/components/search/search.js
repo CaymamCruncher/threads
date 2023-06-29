@@ -95,6 +95,7 @@ function Search({ filter, data, preview }) {
 						name="searchbar"
 						type="text"
 						placeholder="Search"
+						required
 						value={search}
 						className={styles.input}
 						onChange={(e) => updateSearch(e.target.value)}

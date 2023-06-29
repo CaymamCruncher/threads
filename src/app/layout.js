@@ -1,5 +1,6 @@
 import "@/app/styles/default.scss";
 import Header from "@/app/components/header/header";
+import Footer from "@/app/components/footer/footer";
 
 export const metadata = {
 	title: "Threads",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
 			<body>
 				<Header />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
