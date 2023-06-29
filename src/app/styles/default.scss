@@ -39,6 +39,9 @@ html {
 		display: block;
 		transition: 0.25s ease-in-out;
 	}
+	&_white:after {
+		background-color: #fff;
+	}
 	&:hover {
 		&:after {
 			width: 100%;
@@ -47,26 +50,6 @@ html {
 }
 
 // header styles
-
-header {
-	text-align: center;
-}
-
-h1 {
-	font-family: "Alex Brush", cursive;
-	font-size: 3rem;
-	font-weight: 300;
-	line-height: 1.2;
-}
-
-nav {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	gap: 0.5rem;
-	max-width: 500px;
-	margin: 0 auto;
-}
 
 // preview heading styles
 
@@ -82,25 +65,5 @@ h2 {
 
 	.container {
 		padding: 3rem;
-	}
-
-	// desktop styles for header
-
-	header {
-		text-align: left;
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
-	}
-
-	h1 {
-		font-size: 5rem;
-	}
-
-	nav {
-		margin: 0;
-		gap: 1.5rem;
 	}
 }
