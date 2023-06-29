@@ -2,6 +2,12 @@
 import styles from "@/app/components/header/header.module.scss";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import { Alex_Brush } from "next/font/google";
+
+const alexBrush = Alex_Brush({
+	weight: "400",
+	subsets: ["latin"],
+});
 
 function Header() {
 	const [isStuck, updateIsStuck] = useState(false);
@@ -35,7 +41,7 @@ function Header() {
 						: styles.header_container
 				}
 			>
-				<h1>
+				<h1 className={alexBrush.className}>
 					<Link href="/">Threads</Link>
 				</h1>
 				<nav>
