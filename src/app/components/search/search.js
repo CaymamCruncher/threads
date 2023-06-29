@@ -47,7 +47,7 @@ function Search({ filter, data }) {
 								height={350}
 							/>
 							<div className={styles.item_price_container}>
-								{item.price > item.msrp ? (
+								{item.price < item.msrp ? (
 									<div>
 										<p
 											className={`${styles.item_price} ${styles.item_crossed_out}`}
