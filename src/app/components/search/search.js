@@ -54,11 +54,7 @@ function Search({ filter, data, preview }) {
 					>
 						Previous
 					</Link>
-					<button
-						className={styles.page_buttons_arrow_next}
-						disabled
-						href={`/${filter}/${pagination.nextPage}`}
-					>
+					<button className={styles.page_buttons_arrow_next} disabled>
 						Next
 					</button>
 				</div>
@@ -71,17 +67,13 @@ function Search({ filter, data, preview }) {
 					>
 						Previous
 					</Link>
-					<button
-						className={styles.page_buttons}
-						disabled
-						href={`/${filter}/${pagination.nextPage}`}
-					>
+					<button className={styles.page_buttons} disabled>
 						Next
 					</button>
 				</div>
 			);
 			return [arrowButtons, bottomButtons];
-		} else {
+		} else if (pagination.currentPage < pagination.totalPages) {
 			let arrowButtons = (
 				<div className={styles.page_buttons_arrow}>
 					<button className={styles.page_buttons_arrow_previous} disabled>
@@ -106,6 +98,28 @@ function Search({ filter, data, preview }) {
 					>
 						Next
 					</Link>
+				</div>
+			);
+			return [arrowButtons, bottomButtons];
+		} else {
+			let arrowButtons = (
+				<div className={styles.page_buttons_arrow}>
+					<button className={styles.page_buttons_arrow_previous} disabled>
+						Previous
+					</button>
+					<button className={styles.page_buttons_arrow_next} disabled>
+						Next
+					</button>
+				</div>
+			);
+			let bottomButtons = (
+				<div className={styles.page_buttons_container}>
+					<button className={styles.page_buttons} disabled>
+						Previous
+					</button>
+					<button className={styles.page_buttons} disabled>
+						Next
+					</button>
 				</div>
 			);
 			return [arrowButtons, bottomButtons];
