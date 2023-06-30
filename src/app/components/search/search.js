@@ -130,6 +130,7 @@ function Search({ filter, data, preview }) {
 	const router = useRouter();
 	const { results, pagination } = data;
 	const [arrowButtons, pageButtons] = computePageButtons(pagination);
+
 	// Check if there are any results
 	if (results.length < 1) {
 		return (

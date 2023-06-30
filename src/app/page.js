@@ -1,5 +1,4 @@
 import Search from "@/app/components/search/search";
-import Link from "next/link";
 
 async function Home() {
 	const tops = await fetch(

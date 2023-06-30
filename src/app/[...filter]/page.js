@@ -1,5 +1,6 @@
 import Search from "@/app/components/search/search";
 
+// Pregenerate routes
 export async function generateStaticParams() {
 	return [
 		{
