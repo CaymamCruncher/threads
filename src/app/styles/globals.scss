@@ -17,11 +17,20 @@ html {
 	font-size: 16px;
 }
 
+body {
+	display: grid;
+	grid-template-columns: 1fr;
+	min-height: 100vh;
+	align-items: start;
+	grid-template-rows: max-content;
+}
+
 // utility styles
 
 .container {
 	padding: 2rem;
 	max-width: 1000px;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -72,6 +81,7 @@ footer {
 	color: #fff;
 	text-align: center;
 	margin-top: 2rem;
+	align-self: end;
 }
 
 small {
