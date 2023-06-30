@@ -1,34 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Threads
 
-## Getting Started
+Threads is a mobile friendly website built using Next.js, SCSS and Searchspring's API. It takes advantage of Next.js to pregenerate the first page of results for linked pages and uses dynamic routes to save the search and page number you were on.
 
-First, run the development server:
+## [Demo](https://threads-kappa.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Thought Process
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I decided to use Next.js with this project as I felt it would be best suited if I were to build a full integration for this app. The features I felt were most useful were the ability to pregenerate popular searches to reduce load times and being able to save the page number you were on by using dynamic routes to keep data on refresh. In addition I felt this was a great opportunity to experiment with the new App router in Next.js.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Pregenerated Routes for fast load times
+- A sticky header using IntersectionObserver to change styles
+- Mobile Responsiveness
+- The ability to detect when no results are found
+- Dynamic routes to save the page you were on when refreshing
+- Conditionally disable next and previous buttons depending on page number

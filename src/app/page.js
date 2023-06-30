@@ -14,7 +14,6 @@ async function Home() {
 	const accessories = await fetch(
 		`http://api.searchspring.net/api/search/search.json?siteId=${process.env.SEARCH_CODE}&q=accessories&resultsFormat=native&page=1&resultsPerPage=3`
 	).then((res) => res.json());
-	console.log(tops);
 
 	return (
 		<main>
