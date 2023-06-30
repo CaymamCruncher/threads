@@ -21,13 +21,13 @@ async function Home() {
 			<section className="container">
 				<Search filter="Tops" data={tops} preview={true} />
 			</section>
-			<section className="container">
+			<section className="container search_preview">
 				<Search filter="Bottoms" data={bottoms} preview={true} />
 			</section>
-			<section className="container">
+			<section className="container search_preview">
 				<Search filter="Footwear" data={footwear} preview={true} />
 			</section>
-			<section className="container">
+			<section className="container search_preview">
 				<Search filter="Accessories" data={accessories} preview={true} />
 			</section>
 		</main>
