@@ -116,6 +116,41 @@ function Search({ filter, data, preview }) {
 	const router = useRouter();
 	const { results, pagination } = data;
 	const [arrowButtons, pageButtons] = computePageButtons(pagination);
+	// Check if there are any results
+	if (results.length < 1) {
+		return (
+			<div className={styles.heading_container}>
+				<h2>No Results Found</h2>
+				<div className={styles.form_container}>
+					<form
+						className={styles.input_container}
+						onSubmit={(e) => {
+							e.preventDefault();
+							router.push(`/${search}/1`);
+						}}
+					>
+						<label htmlFor="searchbar" className={styles.label}>
+							Search
+						</label>
+						<input
+							id="searchbar"
+							name="searchbar"
+							type="text"
+							placeholder="Search"
+							required
+							value={search}
+							className={styles.input}
+							onChange={(e) => updateSearch(e.target.value)}
+						/>
+						<button className={styles.button} type="submit">
+							Search
+						</button>
+					</form>
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<>
 			<div className={styles.heading_container}>
