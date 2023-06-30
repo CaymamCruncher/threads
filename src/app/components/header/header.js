@@ -12,9 +12,6 @@ const alexBrush = Alex_Brush({
 function Header() {
 	const [isStuck, updateIsStuck] = useState(false);
 	const headerRef = useRef(null);
-	let linkClasses = isStuck
-		? "animated_link animated_link_white"
-		: "animated_link";
 
 	// check if header has stuck to top of screen and change styles of component
 	useEffect(() => {
@@ -45,16 +42,19 @@ function Header() {
 					<Link href="/">Threads</Link>
 				</h1>
 				<nav>
-					<Link className={linkClasses} href={"/Tops/1"}>
+					<Link className="animated_link" href={"/Tops/1"}>
 						Tops
 					</Link>
-					<Link className={linkClasses} href={"/Bottoms/1"}>
+					<span className={styles.header_spacer}></span>
+					<Link className="animated_link" href={"/Bottoms/1"}>
 						Bottoms
 					</Link>
-					<Link className={linkClasses} href={"/Footwear/1"}>
+					<span className={styles.header_spacer}></span>
+					<Link className="animated_link" href={"/Footwear/1"}>
 						Footwear
 					</Link>
-					<Link className={linkClasses} href={"/Accessories/1"}>
+					<span className={styles.header_spacer}></span>
+					<Link className="animated_link" href={"/Accessories/1"}>
 						Accessories
 					</Link>
 				</nav>
