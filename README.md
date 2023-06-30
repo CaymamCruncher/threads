@@ -6,13 +6,13 @@ Threads is a mobile friendly website built using Next.js, SCSS and Searchspring'
 
 ## Thought Process
 
-I decided to use Next.js with this project as I felt it would be best suited for a full integration of this app. The features I felt were most useful were the ability to pregenerate popular searches to reduce load times and being able to save the page number you were on by using dynamic routes to keep data on refresh. In addition I felt this was a great opportunity to experiment with the new App router in Next.js.
+I decided to use Next.js with this project as I felt it would be best suited for a full integration of this app. I wanted the ability to pregenerate popular searches and save the page the user was on by using dynamic routes. In addition, this was a great opportunity to experiment with the new App router in Next.js and try out new features.
 
 ## Features
 
-- Pregenerated Routes for fast load times
+- Pregenerated routes for fast load times
 - A sticky header using IntersectionObserver to change styles
-- Mobile Responsiveness
+- Mobile responsiveness
 - The ability to detect when no results are found
 - Dynamic routes to save the page you were on when refreshing
 - Conditionally disable next and previous buttons depending on page number
