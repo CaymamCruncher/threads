@@ -12,33 +12,50 @@ function Search({ filter, data, preview }) {
 			pagination.currentPage > 1 &&
 			pagination.currentPage < pagination.totalPages
 		) {
-			return (
-				<div className={styles.page_buttons}>
+			let arrowButtons = (
+				<div className={styles.page_buttons_arrow}>
 					<Link
-						className={styles.page_buttons_previous}
+						className={styles.page_buttons_arrow_previous}
 						href={`/${filter}/${pagination.previousPage}`}
 					>
 						Previous
 					</Link>
 					<Link
-						className={styles.page_buttons_next}
+						className={styles.page_buttons_arrow_next}
 						href={`/${filter}/${pagination.nextPage}`}
 					>
 						Next
 					</Link>
 				</div>
 			);
-		} else if (pagination.currentPage > 1) {
-			return (
-				<div className={styles.page_buttons}>
+			let bottomButtons = (
+				<div className={styles.page_buttons_container}>
 					<Link
-						className={styles.page_buttons_previous}
+						className={styles.page_buttons}
+						href={`/${filter}/${pagination.previousPage}`}
+					>
+						Previous
+					</Link>
+					<Link
+						className={styles.page_buttons}
+						href={`/${filter}/${pagination.nextPage}`}
+					>
+						Next
+					</Link>
+				</div>
+			);
+			return [arrowButtons, bottomButtons];
+		} else if (pagination.currentPage > 1) {
+			let arrowButtons = (
+				<div className={styles.page_buttons_arrow}>
+					<Link
+						className={styles.page_buttons_arrow_previous}
 						href={`/${filter}/${pagination.previousPage}`}
 					>
 						Previous
 					</Link>
 					<button
-						className={styles.page_buttons_next}
+						className={styles.page_buttons_arrow_next}
 						disabled
 						href={`/${filter}/${pagination.nextPage}`}
 					>
@@ -46,28 +63,59 @@ function Search({ filter, data, preview }) {
 					</button>
 				</div>
 			);
+			let bottomButtons = (
+				<div className={styles.page_buttons_container}>
+					<Link
+						className={styles.page_buttons}
+						href={`/${filter}/${pagination.previousPage}`}
+					>
+						Previous
+					</Link>
+					<button
+						className={styles.page_buttons}
+						disabled
+						href={`/${filter}/${pagination.nextPage}`}
+					>
+						Next
+					</button>
+				</div>
+			);
+			return [arrowButtons, bottomButtons];
 		} else {
-			return (
-				<div className={styles.page_buttons}>
-					<button className={styles.page_buttons_previous} disabled>
+			let arrowButtons = (
+				<div className={styles.page_buttons_arrow}>
+					<button className={styles.page_buttons_arrow_previous} disabled>
 						Previous
 					</button>
 					<Link
-						className={styles.page_buttons_next}
+						className={styles.page_buttons_arrow_next}
 						href={`/${filter}/${pagination.nextPage}`}
 					>
 						Next
 					</Link>
 				</div>
 			);
+			let bottomButtons = (
+				<div className={styles.page_buttons_container}>
+					<button className={styles.page_buttons} disabled>
+						Previous
+					</button>
+					<Link
+						className={styles.page_buttons}
+						href={`/${filter}/${pagination.nextPage}`}
+					>
+						Next
+					</Link>
+				</div>
+			);
+			return [arrowButtons, bottomButtons];
 		}
 	}
 
 	const [search, updateSearch] = useState("");
 	const router = useRouter();
 	const { results, pagination } = data;
-	console.log(pagination);
-	let pageButtons = computePageButtons(pagination);
+	const [arrowButtons, pageButtons] = computePageButtons(pagination);
 	return (
 		<>
 			<div className={styles.heading_container}>
@@ -80,30 +128,33 @@ function Search({ filter, data, preview }) {
 				) : (
 					<h2>{filter}</h2>
 				)}
-				<form
-					className={styles.input_container}
-					onSubmit={(e) => {
-						e.preventDefault();
-						router.push(`/${search}/1`);
-					}}
-				>
-					<label htmlFor="searchbar" className={styles.label}>
-						Search
-					</label>
-					<input
-						id="searchbar"
-						name="searchbar"
-						type="text"
-						placeholder="Search"
-						required
-						value={search}
-						className={styles.input}
-						onChange={(e) => updateSearch(e.target.value)}
-					/>
-					<button className={styles.button} type="submit">
-						Search
-					</button>
-				</form>
+				<div className={styles.form_container}>
+					<form
+						className={styles.input_container}
+						onSubmit={(e) => {
+							e.preventDefault();
+							router.push(`/${search}/1`);
+						}}
+					>
+						<label htmlFor="searchbar" className={styles.label}>
+							Search
+						</label>
+						<input
+							id="searchbar"
+							name="searchbar"
+							type="text"
+							placeholder="Search"
+							required
+							value={search}
+							className={styles.input}
+							onChange={(e) => updateSearch(e.target.value)}
+						/>
+						<button className={styles.button} type="submit">
+							Search
+						</button>
+					</form>
+					{!preview && arrowButtons}
+				</div>
 			</div>
 			{results ? (
 				<div className={styles.item_container}>
