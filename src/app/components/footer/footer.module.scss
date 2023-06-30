@@ -1,0 +1,22 @@
+.icons_container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+
+	a {
+		font-size: 0;
+		width: 30px;
+		height: 30px;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}
+
+.icons_github {
+	background-image: url("~/src/app/icons/github.svg");
+}
+
+.icons_linkedin {
+	background-image: url("~/src/app/icons/linkedin.svg");
+}
